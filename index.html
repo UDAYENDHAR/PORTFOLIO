@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Udayendhar S M — Portfolio</title>
+  <meta name="description" content="Professional portfolio of Udayendhar S M — Java Developer / Full-Stack / Data Analyst" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4; /* teal/cyan */
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --border: rgba(255,255,255,0.06);
+      --radius:12px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg) 0%, #071021 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:32px 20px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    /* Header (now card-like for visual balance) */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:28px;
+      padding:14px 18px;
+      background:linear-gradient(180deg,var(--card), rgba(10,12,20,0.6));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .avatar{
+      width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021022;overflow:hidden;
+    }
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{color:#fff;background:var(--glass)}
+
+    /* Section wrapper: equal borders & spacing */
+    section{
+      margin-bottom:26px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid var(--border);
+      padding:18px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:8px;
+    }
+    .intro{
+      padding:22px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 6px 30px rgba(2,6,23,0.6);border:1px solid var(--border)
+    }
+    h1{margin:0 0 6px;font-size:28px}
+    h1 .accent{color:var(--accent)}
+    p.lead{color:var(--muted);margin:8px 0 18px}
+    .ctas{display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),#7c3aed);padding:10px 14px;border-radius:10px;color:#021022;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+
+    /* Card */
+    .profile-card{background:linear-gradient(180deg,var(--card), rgba(10,12,20,0.6));padding:20px;border-radius:12px;min-height:200px;border:1px solid var(--border)}
+    .meta{display:flex;gap:12px;align-items:center}
+    .meta .name{font-weight:700}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+
+    /* Projects */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px;border:1px solid var(--border);min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+    .project h4{margin:0 0 6px}
+    .project p{color:var(--muted);margin:0 0 10px;font-size:14px}
+    .project .tags{display:flex;gap:8px;flex-wrap:wrap}
+
+    /* Experience / cards */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .small-card{background:var(--glass-2);padding:12px;border-radius:10px;border:1px solid var(--border)}
+
+    /* Contact */
+    .contact-form{display:grid;gap:10px}
+    .input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.05);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .muted{color:var(--muted);font-size:14px}
+
+    footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);margin-top:12px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .projects{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      header{gap:14px}
+    }
+    @media (max-width:560px){
+      .grid-3{grid-template-columns:1fr}
+      nav{display:none}
+      header{align-items:flex-start}
+    }
+
+    /* subtle animation */
+    .reveal{opacity:0;transform:translateY(8px);animation:reveal 600ms ease forwards}
+    .reveal.delay{animation-delay:120ms}
+    @keyframes reveal{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img class="avatar" src="/Image-1.jpg" alt="Profile Photo" style="object-fit:cover;" />
+        <div>
+          <div style="font-weight:700">Udayendhar S M</div>
+          <div class="muted" style="font-size:13px">Java Developer • Data Analyst • Frontend Enthusiast</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Hire Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro reveal">
+          <h1>Hello — I'm <span class="accent">Udayendhar</span></h1>
+          <p class="lead">I build reliable backend systems, craft intuitive frontends and analyze data to deliver business insights. Currently preparing for Java Developer roles and creating production-ready applications.</p>
+          <div class="ctas">
+            <a class="btn" href="#projects">See Projects</a>
+            <a class="btn ghost" href="mailto:smudayendhar@gmail.com">Contact</a>
+          </div>
+
+          <div style="margin-top:18px" class="muted">Quick links</div>
+          <div class="skills" style="margin-top:8px">
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">SQL</span>
+            <span class="chip">React</span>
+            <span class="chip">Power BI</span>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal delay">
+          <div class="meta">
+            <div style="flex:1">
+              <div class="name">Udayendhar S M</div>
+              <div class="muted">B.Tech — Computer Science & Business Systems</div>
+            </div>
+            <div style="text-align:right">
+              <div class="muted">Location</div>
+              <div>Chennai, India</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="muted">About me</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:14px">I'm passionate about software engineering, data analytics and building apps that people enjoy using. Experienced with internships and certifications in data science and cloud technologies.</div>
+
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <a class="btn ghost" href="#contact">Download CV</a>
+            <a class="btn" href="https://www.linkedin.com/in/udayendhar-s-m-DA" target="_blank">LinkedIn</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects" class="reveal">
+        <div class="section-title"><h3>Projects</h3><div class="muted">A selection of recent work</div></div>
+        <div class="projects">
+          <article class="project">
+            <div>
+              <h4>Electric Vehicle Analysis</h4>
+              <p>Data analysis project using Excel, Power BI & Python to analyze EV trends and charging infrastructure.</p>
+            </div>
+            <div>
+              <div class="tags">
+                <span class="chip">Power BI</span>
+                <span class="chip">Python</span>
+                <span class="chip">SQL</span>
+              </div>
+              <div style="margin-top:10px"><a class="btn ghost" href="#">View Case Study</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h4>Portfolio Website</h4>
+              <p>Responsive single-page portfolio built with semantic HTML, modern CSS and vanilla JavaScript.</p>
+            </div>
+            <div>
+              <div class="tags"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span></div>
+              <div style="margin-top:10px"><a class="btn ghost" href="#">Live Demo</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h4>Internship — Data Analytics</h4>
+              <p>Worked at TANSAM Siemens on data analytics pipelines and dashboarding for operational metrics.</p>
+            </div>
+            <div>
+              <div class="tags"><span class="chip">Analytics</span><span class="chip">Dashboard</span></div>
+              <div style="margin-top:10px"><a class="btn ghost" href="#">Project Notes</a></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h4>Java Web App (Template)</h4>
+              <p>Starter Spring Boot application with RESTful APIs, JWT auth and SQL integration.</p>
+            </div>
+            <div>
+              <div class="tags"><span class="chip">Spring Boot</span><span class="chip">Postgres</span></div>
+              <div style="margin-top:10px"><a class="btn ghost" href="#">Source</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="reveal delay">
+        <div class="section-title"><h3>Skills</h3><div class="muted">Tools & technologies I use</div></div>
+        <div class="grid-3" style="margin-bottom:12px">
+          <div class="small-card">
+            <strong>Backend</strong>
+            <div class="muted">Java, Spring Boot, REST, Security</div>
+          </div>
+          <div class="small-card">
+            <strong>Frontend</strong>
+            <div class="muted">HTML, CSS, JavaScript, React (basics)</div>
+          </div>
+          <div class="small-card">
+            <strong>Data & DB</strong>
+            <div class="muted">SQL, Postgres, Power BI, Python (pandas)</div>
+          </div>
+        </div>
+
+        <div class="section-title"><h3>Experience</h3></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="small-card" style="min-width:220px">
+            <strong>TANSAM Siemens — Data Analytics Intern</strong>
+            <div class="muted">Jun 2024 — Aug 2024</div>
+            <div class="muted" style="margin-top:6px;font-size:14px">Built dashboards and cleaned telemetry data for insights on performance.</div>
+          </div>
+
+          <div class="small-card" style="min-width:220px">
+            <strong>Certifications</strong>
+            <div class="muted">OCI Generative AI • Coursera • NASSCOM Intro to Data Science</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal">
+        <div class="section-title"><h3>Contact</h3><div class="muted">Let's talk — open to full-time roles & internships</div></div>
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:18px">
+          <form class="contact-form" onsubmit="return handleSubmit(event)">
+            <input class="input" id="name" placeholder="Your name" required />
+            <input class="input" id="email" type="email" placeholder="Your email" required />
+            <input class="input" id="subject" placeholder="Subject" />
+            <textarea id="message" placeholder="Message" required></textarea>
+            <div style="display:flex;gap:12px">
+              <button class="btn" type="submit">Send message</button>
+              <button class="btn ghost" type="button" onclick="location.href='mailto:smudayendhar@gmail.com'">Email me</button>
+            </div>
+          </form>
+
+          <aside class="profile-card">
+            <div><strong>Contact details</strong></div>
+            <div class="muted" style="margin-top:8px">Email</div>
+            <div>smudayendhar@gmail.com</div>
+            <div class="muted" style="margin-top:8px">Phone</div>
+            <div>+91 72007 91765</div>
+
+            <div style="margin-top:12px"><strong>Social</strong></div>
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <a class="chip" href="https://www.linkedin.com/in/udayendhar-s-m-DA" target="_blank">LinkedIn</a>
+              <a class="chip" href="https://github.com/UDAYENDHAR" target="_blank">GitHub</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Udayendhar S M</div>
+      
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){
+        alert('Please fill name, email and message.');
+        return false;
+      }
+      // For a static portfolio, open user's email client
+      const mailto = `mailto:smudayendhar@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio contact from ' + name)}&body=${encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message)}`;
+      window.location.href = mailto;
+      return false;
+    }
+
+    // reveal on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.animationDelay = (i*80)+'ms'})
+    })
+
+    // Optional: smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
